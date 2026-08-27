@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="관광 자원 조사와 SNS 콘텐츠 기획 자료">
+  <title>Report — Tourism Content Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"><script src="js/main.js" defer></script>
+</head>
+<body data-page="report">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="홈"><span class="brand-mark"></span><span>TOURISM<br>ARCHIVE</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴"><a href="report.html" data-nav="report">REPORT</a><a href="contents.html" data-nav="contents">CONTENTS</a><a href="sns.html" data-nav="sns">SNS</a><a href="final.html" data-nav="final">FINAL PROJECT</a></nav>
+  </header>
+  <main id="main">
+    <section class="page-hero section-pad">
+      <div><p class="eyebrow">01 / RESEARCH & PLANNING</p><h1>Report<span class="dot">.</span></h1></div>
+      <p>관광 자원의 가능성을 발견하고<br>콘텐츠의 방향을 설계합니다.</p>
+      <div class="hero-shape shape-report" aria-hidden="true"><span>R</span></div>
+    </section>
+    <section class="content-section section-pad reveal">
+      <div class="section-heading split-heading"><div><p class="section-number">RESOURCE LIST</p><h2>관광 자원 조사</h2></div><p>지역의 장소와 이야기를 조사하고 콘텐츠로 발전시킬 핵심 포인트를 구조화합니다.</p></div>
+      <div class="toolbar" aria-label="관광 자원 필터">
+        <div class="filter-group">
+          <button class="filter is-active" data-resource-filter="all">전체</button>
+          <button class="filter" data-resource-filter="nature">자연·경관</button>
+          <button class="filter" data-resource-filter="culture">역사·문화</button>
+          <button class="filter" data-resource-filter="leisure">체험·레저</button>
+        </div>
+        <label class="search-box"><span class="sr-only">관광 자원 검색</span><input type="search" data-resource-search placeholder="관광 자원 검색"><span>⌕</span></label>
+      </div>
+
+      <div class="table-wrap resource-summary-table">
+        <table class="resource-table">
+          <thead><tr><th>No.</th><th>관광 자원명</th><th>지역</th><th>유형</th><th>핵심 특징</th></tr></thead>
+          <tbody>
+            <tr data-resource-category="nature"><td>001</td><td><strong>청학배수지전망대</strong></td><td>영도구 와치로</td><td>자연·경관</td><td>마을과 항구 야경을 잇는 로컬 여행</td></tr>
+            <tr data-resource-category="culture"><td>002</td><td><strong>깡깡이마을</strong></td><td>영도구 대평동</td><td>역사·문화</td><td>부산에서 100년 넘게 들린 소리</td></tr>
+            <tr data-resource-category="leisure"><td>003</td><td><strong>영도공간 307</strong></td><td>영도구 해양로</td><td>체험·레저</td><td>바닷가 창고 속 무료 디지털 놀이터</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="resource-detail-heading">
+        <p class="section-number">SELECTED RESOURCE</p>
+        <h3>선정 관광 자원 상세</h3>
+        <p>각 장소의 핵심 정보와 추천 체험을 한눈에 확인할 수 있습니다.</p>
+      </div>
+
+      <div class="resource-card-grid">
+        <article class="resource-card reveal" data-resource-category="nature">
+          <button class="resource-card-trigger" type="button" data-resource-open="cheonghak"><span class="sr-only">청학배수지전망대 상세 팝업 열기</span></button>
+          <div class="resource-visual visual-cheonghak" aria-hidden="true">
+            <span class="resource-visual-label">SELECTED PLACE</span>
+            <strong>01</strong>
+            <div class="landscape-mark"></div>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-card-top"><span class="resource-index">RESOURCE 01</span><span class="resource-type">자연·경관 관광 자원</span></div>
+            <h3>청학배수지전망대</h3>
+            <p class="resource-lead">관광객이 모르는 영도의 마을과<br>항구 야경을 잇는 로컬 여행</p>
+            <dl class="resource-details">
+              <div><dt>지역</dt><dd>부산광역시 영도구 와치로 36</dd></div>
+              <div><dt>대표 체험</dt><dd>일몰·야경 감상, 사진 촬영,<br>산책과 조깅</dd></div>
+              <div><dt>추천 방문 시기</dt><dd><strong>봄·가을</strong> 일몰 30분 전부터 야간</dd></div>
+            </dl>
+            <p class="resource-view">VIEW DETAILS <span>↗</span></p>
+          </div>
+        </article>
+
+        <article class="resource-card reveal" data-resource-category="culture">
+          <button class="resource-card-trigger" type="button" data-resource-open="kkangkangee"><span class="sr-only">깡깡이마을 상세 팝업 열기</span></button>
+          <div class="resource-visual visual-kkangkangee" aria-hidden="true">
+            <span class="resource-visual-label">SELECTED PLACE</span>
+            <strong>02</strong>
+            <div class="landscape-mark"></div>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-card-top"><span class="resource-index">RESOURCE 02</span><span class="resource-type">역사·문화 관광 자원</span></div>
+            <h3>깡깡이마을</h3>
+            <p class="resource-lead">“부산에서 100년 넘게<br>들린 소리”</p>
+            <dl class="resource-details">
+              <div><dt>지역</dt><dd>부산광역시 영도구 대평북로 36, 대평동</dd></div>
+              <div><dt>대표 체험</dt><dd>마을투어, 해상투어, 마을박물관 관람,<br>공공예술 작품 감상</dd></div>
+              <div><dt>추천 방문 시기</dt><dd><strong>봄·가을</strong> 주말 낮 시간대</dd></div>
+            </dl>
+            <p class="resource-view">VIEW DETAILS <span>↗</span></p>
+          </div>
+        </article>
+
+        <article class="resource-card reveal" data-resource-category="leisure">
+          <button class="resource-card-trigger" type="button" data-resource-open="space307"><span class="sr-only">영도공간 307 상세 팝업 열기</span></button>
+          <div class="resource-visual visual-space307" aria-hidden="true">
+            <span class="resource-visual-label">SELECTED PLACE</span>
+            <strong>03</strong>
+            <div class="landscape-mark"></div>
+          </div>
+          <div class="resource-card-body">
+            <div class="resource-card-top"><span class="resource-index">RESOURCE 03</span><span class="resource-type">체험·레저 관광 자원</span></div>
+            <h3>영도공간 307</h3>
+            <p class="resource-lead">“영도 바닷가 창고 안에 숨겨진<br>무료 디지털 놀이터”</p>
+            <dl class="resource-details">
+              <div><dt>지역</dt><dd>부산광역시 영도구 해양로 307</dd></div>
+              <div><dt>대표 체험</dt><dd>스크린 클라이밍·사격·러닝,<br>디지털 스크린, 노래 체험</dd></div>
+              <div><dt>추천 방문 시기</dt><dd><strong>사계절</strong> 비나 미세먼지가 있는 날</dd></div>
+            </dl>
+            <p class="resource-view">VIEW DETAILS <span>↗</span></p>
+          </div>
+        </article>
+      </div>
+      <p class="resource-empty" hidden>일치하는 관광 자원이 없습니다.</p>
+    </section>
+    <section class="content-section tint-section section-pad">
+      <div class="section-heading reveal"><p class="section-number">CONTENT PLANNING</p><h2>SNS 콘텐츠 기획 프레임</h2></div>
+      <div class="planning-grid">
+        <article class="planning-card reveal"><span>01</span><h3>Discover</h3><p>지역과 타깃을 이해하고 아직 발견되지 않은 관광 자원의 매력을 찾습니다.</p><ul><li>지역 및 트렌드 리서치</li><li>핵심 타깃 정의</li></ul></article>
+        <article class="planning-card reveal"><span>02</span><h3>Define</h3><p>조사한 자료를 기반으로 콘텐츠의 메시지와 채널별 역할을 정합니다.</p><ul><li>핵심 메시지 설정</li><li>콘텐츠 포맷 기획</li></ul></article>
+        <article class="planning-card reveal"><span>03</span><h3>Create</h3><p>카드뉴스와 영상으로 이야기를 구체화하고 일관된 경험을 완성합니다.</p><ul><li>비주얼 제작</li><li>카피 및 편집</li></ul></article>
+      </div>
+    </section>
+  </main>
+
+  <div class="resource-modal" data-resource-modal hidden>
+    <div class="resource-modal-backdrop" data-modal-close></div>
+    <section class="resource-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-place-title">
+      <button class="modal-close" type="button" data-modal-close aria-label="상세 팝업 닫기"><span></span><span></span></button>
+      <aside class="modal-sidebar">
+        <div class="modal-sidebar-head"><span class="brand-mark" aria-hidden="true"></span><p>RESOURCE<br>DETAIL</p></div>
+        <p class="modal-category-title">카테고리</p>
+        <nav class="modal-nav" aria-label="상세 정보 카테고리">
+          <button class="is-active" type="button" data-modal-target="modal-overview"><span class="nav-icon">⌂</span><span>홈</span></button>
+          <button type="button" data-modal-target="modal-location"><span class="nav-icon">◎</span><span>위치·이용안내</span></button>
+          <button type="button" data-modal-target="modal-program"><span class="nav-icon">□</span><span>체험 프로그램</span></button>
+          <button type="button" data-modal-target="modal-reviews"><span class="nav-icon">◇</span><span>방문자 후기</span></button>
+          <button type="button" data-modal-target="modal-nearby"><span class="nav-icon">＋</span><span>주변 추천</span></button>
+        </nav>
+        <p class="modal-sidebar-no" data-modal-number>01</p>
+      </aside>
+
+      <div class="modal-scroll" data-modal-scroll>
+        <section class="modal-section modal-overview" id="modal-overview" data-modal-section>
+          <div class="modal-kicker"><span data-modal-type>자연·경관 관광 자원</span><span data-modal-location>BUSAN · YEONGDO</span></div>
+          <h2 id="modal-place-title" data-modal-title>청학배수지전망대</h2>
+          <p class="modal-lead" data-modal-lead>관광객이 모르는 영도의 마을과 항구 야경을 잇는 로컬 여행</p>
+          <p class="modal-description" data-modal-description></p>
+          <div class="modal-facts">
+            <div><span>LOCATION</span><strong data-modal-address></strong></div>
+            <div><span>BEST TIME</span><strong data-modal-time></strong></div>
+          </div>
+          <div class="modal-gallery" aria-label="관광 자원 이미지 영역">
+            <figure class="modal-photo modal-photo-main"><img src="assets/images/report/cheonghak-01.jpg" alt="" data-modal-image-main><figcaption>LOCAL SCENE</figcaption></figure>
+            <figure class="modal-photo modal-photo-sub"><img src="assets/images/report/cheonghak-02.jpg" alt="" data-modal-image-sub><figcaption>PLACE DETAIL</figcaption></figure>
+          </div>
+          <p class="modal-photo-credit" data-modal-credit>사진 출처: 한국관광공사</p>
+          <div class="modal-tags"><span>RELATED TAGS</span><div data-modal-tags></div></div>
+        </section>
+
+        <section class="modal-section modal-location" id="modal-location" data-modal-section>
+          <div class="modal-section-head"><p>LOCATION &amp; GUIDE</p><h2>위치·이용안내</h2><span>방문 전 필요한 정보를 확인하세요.</span></div>
+          <div class="map-frame">
+            <iframe data-modal-map title="관광 자원 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-address"><div><span>ADDRESS</span><strong data-guide-address></strong></div><div class="map-actions"><button type="button" data-copy-address>주소 복사</button><a href="#" target="_blank" rel="noopener" data-map-link>지도에서 보기 ↗</a></div></div>
+          </div>
+          <div class="guide-grid">
+            <article><span>OPENING HOURS</span><strong data-guide-hours></strong><p data-guide-closed></p></article>
+            <article><span>ADMISSION</span><strong data-guide-fee></strong><p data-guide-reservation></p></article>
+            <article><span>TRANSPORT</span><strong data-guide-transport></strong><p data-guide-transit></p></article>
+            <article><span>PARKING</span><strong data-guide-parking></strong><p>방문 전 현장 상황을 확인해 주세요.</p></article>
+          </div>
+          <div class="visit-tip"><span>VISIT TIP</span><p data-guide-tip></p><b data-guide-duration></b></div>
+        </section>
+
+        <section class="modal-section modal-program" id="modal-program" data-modal-section>
+          <div class="modal-section-head"><p>EXPERIENCE</p><h2>체험 프로그램</h2><span>이 장소를 더 깊이 경험하는 방법</span></div>
+          <div class="program-list" data-modal-programs></div>
+        </section>
+
+        <section class="modal-section modal-reviews" id="modal-reviews" data-modal-section>
+          <div class="modal-section-head"><p>VISITOR REVIEW</p><h2>방문자 후기</h2><span>직접 방문한 사람들의 생생한 기록</span></div>
+          <div class="review-summary"><strong data-review-score>4.8</strong><div><span>★★★★★</span><p>방문자 만족도</p></div></div>
+          <div class="review-list" data-modal-reviews></div>
+        </section>
+
+        <section class="modal-section modal-nearby" id="modal-nearby" data-modal-section>
+          <div class="modal-section-head"><p>NEARBY COURSE</p><h2>주변 추천</h2><span>한 번의 이동으로 함께 둘러보기 좋은 장소</span></div>
+          <div class="nearby-route"><span>START</span><i></i><strong data-nearby-start></strong><i></i><span>FINISH</span></div>
+          <div class="nearby-grid" data-modal-nearby></div>
+          <div class="related-content"><div><span>RELATED CONTENT</span><h3>이 장소의 이야기를<br>콘텐츠로 만나보세요.</h3></div><a href="contents.html">CONTENTS 바로가기 <b>↗</b></a></div>
+        </section>
+      </div>
+    </section>
+  </div>
+  <footer class="site-footer"><div><span class="brand-mark"></span><strong>TOURISM CONTENT ARCHIVE</strong></div><p>SK플래닛 관광 콘텐츠 제작 프로젝트</p><p>© <span data-year></span> All rights reserved.</p></footer>
+</body>
+</html>
