@@ -1,83 +1,1385 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SK플래닛 관광 콘텐츠 제작 과정과 결과물을 기록하는 디지털 아카이브 홈">
-  <title>Home — Tourism Content Archive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>부산한 하루 | Brand Identity Guidelines</title>
+
+  <style>
+    /* =========================
+       RESET
+    ========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Pretendard,
+        "Noto Sans KR",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: #eeeeee;
+      color: #1a1a1a;
+    }
+
+    :root {
+      --blue: #2765f6;
+      --black: #1a1a1a;
+      --white: #ffffff;
+      --orange: #ff7a32;
+      --navy: #18356f;
+
+      --gray-bg: #f8f9fb;
+      --line: #e8e8e8;
+      --text-gray: #777777;
+      --pink: #ef72a1;
+    }
+
+    /* =========================
+       PAGE
+    ========================== */
+
+    .page {
+      width: min(1440px, 94%);
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 60px 65px 70px;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-bottom: 15px;
+      border-bottom: 1px solid #1a1a1a;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .top-meta-right {
+      display: flex;
+      gap: 24px;
+      font-size: 9px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .hero {
+      margin-top: 28px;
+      margin-bottom: 65px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .hero p {
+      margin-top: 7px;
+      font-size: 19px;
+      color: var(--orange);
+      font-weight: 500;
+    }
+
+    /* =========================
+       SECTION HEADER
+    ========================== */
+
+    .section {
+      margin-top: 62px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+    }
+
+    .section-number {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pink);
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .section-en {
+      font-size: 9px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* =========================
+       LOGO SVG
+    ========================== */
+
+    .logo {
+      width: 100%;
+      max-width: 220px;
+    }
+
+    .logo svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .logo-small {
+      max-width: 120px;
+    }
+
+    .logo-tiny {
+      max-width: 90px;
+    }
+
+    /* =========================
+       PRIMARY LOGO
+    ========================== */
+
+    .primary-grid {
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .logo-preview {
+      min-height: 360px;
+      background: #f8f9fb;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .primary-content {
+      max-width: 720px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #1a1a1a;
+      color: #ffffff;
+
+      font-size: 9px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .primary-content h2 {
+      font-size: 27px;
+      letter-spacing: -0.04em;
+      line-height: 1.25;
+      margin-bottom: 15px;
+    }
+
+    .primary-content p {
+      font-size: 12px;
+      line-height: 1.9;
+      color: #666;
+    }
+
+    /* =========================
+       PALETTE
+    ========================== */
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .color-card {
+      min-width: 0;
+    }
+
+    .color-swatch {
+      height: 120px;
+      border-radius: 3px;
+      border: 1px solid #e9e9e9;
+    }
+
+    .color-details {
+      margin-top: 9px;
+    }
+
+    .color-details strong {
+      display: block;
+      font-size: 10px;
+      margin-bottom: 3px;
+    }
+
+    .color-details span {
+      display: block;
+      font-size: 8px;
+      line-height: 1.55;
+      color: #555;
+    }
+
+    /* =========================
+       TWO COLUMN
+    ========================== */
+
+    .double-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-top: 60px;
+    }
+
+    /* =========================
+       CLEAR SPACE
+    ========================== */
+
+    .clear-space-box,
+    .minimum-box {
+      min-height: 340px;
+      background: #f8f9fb;
+    }
+
+    .clear-space-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .safe-area {
+      width: 230px;
+      height: 230px;
+
+      border: 1px dashed #eaa1ba;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .safe-label {
+      position: absolute;
+      font-size: 9px;
+      font-weight: 700;
+      color: #e482a6;
+    }
+
+    .top {
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .bottom {
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .left {
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .right {
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .description {
+      margin-top: 14px;
+
+      font-size: 10px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    /* =========================
+       MINIMUM
+    ========================== */
+
+    .minimum-box {
+      padding: 50px 60px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .size-item {
+      display: grid;
+      grid-template-columns: 120px 1px 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .size-name strong {
+      display: block;
+      font-size: 11px;
+    }
+
+    .size-name span {
+      display: block;
+      margin-top: 2px;
+      font-size: 8px;
+      color: #777;
+    }
+
+    .vertical-line {
+      height: 55px;
+      background: #e0e0e0;
+    }
+
+    .size-value {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 10px;
+      color: #555;
+    }
+
+    .minimum-logo-sample {
+      display: block;
+      flex: 0 0 auto;
+      height: auto;
+      border: 1px solid #e5e5e5;
+      background: #ffffff;
+    }
+
+    .minimum-logo-digital {
+      width: 32px;
+    }
+
+    .minimum-logo-print {
+      width: 57px;
+    }
+
+    .minimum-size-copy strong,
+    .minimum-size-copy span {
+      display: block;
+    }
+
+    .minimum-size-copy strong {
+      color: #1a1a1a;
+      font-size: 11px;
+    }
+
+    .minimum-size-copy span {
+      margin-top: 2px;
+      color: #777;
+      font-size: 8px;
+    }
+
+    /* =========================
+       WRONG USE
+    ========================== */
+
+    .wrong-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .wrong-card {
+      border: 1px solid #e5e7eb;
+      background: #fafbfc;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .wrong-preview {
+      height: 135px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      background: #ffffff;
+    }
+
+    .wrong-label {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+
+      background: #ff4c4c;
+      color: white;
+
+      font-size: 7px;
+      font-weight: 700;
+
+      padding: 3px 6px;
+    }
+
+    .red-line {
+      position: absolute;
+      left: -10%;
+      top: 50%;
+      width: 70%;
+      height: 2px;
+
+      background: #ff4c4c;
+      transform: rotate(43deg);
+    }
+
+    .wrong-description {
+      padding: 10px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .wrong-description strong {
+      display: block;
+      font-size: 9px;
+      margin-bottom: 3px;
+    }
+
+    .wrong-description span {
+      font-size: 7px;
+      color: #777;
+    }
+
+    .wrong-stretch {
+      transform: scaleX(1.4);
+    }
+
+    .wrong-rotate {
+      transform: rotate(22deg);
+    }
+
+    .wrong-small {
+      transform: scale(0.45);
+    }
+
+    .wrong-opacity {
+      opacity: 0.18;
+    }
+
+    .wrong-shadow {
+      filter: drop-shadow(5px 6px 5px rgba(0,0,0,.4));
+    }
+
+    .pattern {
+      background:
+        linear-gradient(45deg, #ff7a32 25%, transparent 25%),
+        linear-gradient(-45deg, #2765f6 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #ed4c88 75%),
+        linear-gradient(-45deg, transparent 75%, #7acb68 75%);
+
+      background-size: 40px 40px;
+    }
+
+    /* =========================
+       BACKGROUND USAGE
+    ========================== */
+
+    .background-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .background-card {
+      min-height: 250px;
+
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .background-card h3 {
+      margin-top: 20px;
+      font-size: 11px;
+    }
+
+    .background-card p {
+      margin-top: 5px;
+      font-size: 8px;
+      opacity: 0.7;
+    }
+
+    .white-bg {
+      background: #ffffff;
+    }
+
+    .dark-bg {
+      background: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .orange-bg {
+      background: #ff7a32;
+      color: #ffffff;
+    }
+
+    .logo-white-box {
+      background: #ffffff;
+      padding: 18px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      margin-top: 70px;
+      padding-top: 20px;
+
+      border-top: 1px solid #e9e9e9;
+
+      display: flex;
+      justify-content: space-between;
+
+      font-size: 9px;
+      color: #999;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1000px) {
+
+      .page {
+        padding: 45px 30px;
+      }
+
+      .primary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .palette {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .double-section {
+        grid-template-columns: 1fr;
+      }
+
+      .wrong-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 620px) {
+
+      .page {
+        width: 100%;
+        margin: 0;
+        padding: 30px 18px;
+      }
+
+      .top-meta-right {
+        display: none;
+      }
+
+      .palette {
+        grid-template-columns: 1fr;
+      }
+
+      .wrong-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .background-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        margin-bottom: 45px;
+      }
+
+      .minimum-box {
+        padding: 38px 24px;
+      }
+
+      .size-item {
+        grid-template-columns: 82px 1px 1fr;
+        gap: 14px;
+      }
+
+      .size-value {
+        gap: 12px;
+      }
+
+    }
+
+
+    /* =========================
+       ARCHIVE NAVIGATION + IMAGE
+    ========================== */
+
+    .logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .logo-white-box img {
+      display: block;
+      width: 90px;
+      height: auto;
+    }
+
+    .archive-topbar {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      padding: 0 clamp(20px, 4vw, 64px);
+      border-bottom: 1px solid #e1e1e1;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+    }
+
+    .archive-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #1a1a1a;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.05;
+      text-decoration: none;
+    }
+
+    .archive-brand-mark {
+      width: 18px;
+      height: 18px;
+      border-radius: 50% 50% 3px 50%;
+      background: #c7f4a3;
+      transform: rotate(-20deg);
+    }
+
+    .archive-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.7vw, 45px);
+    }
+
+    .archive-nav a {
+      position: relative;
+      padding: 31px 0 28px;
+      color: #1a1a1a;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .archive-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 21px;
+      left: 0;
+      height: 2px;
+      background: #98d868;
+      transform: scaleX(0);
+      transition: transform .2s ease;
+    }
+
+    .archive-nav a:hover::after,
+    .archive-nav a.is-current::after {
+      transform: scaleX(1);
+    }
+
+    .guide-social {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .guide-social a {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid #d8d8d8;
+      border-radius: 50%;
+      color: #555;
+      font-size: 8px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: color .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .guide-social a:hover,
+    .guide-social a:focus-visible {
+      color: #1a1a1a;
+      border-color: #c7f4a3;
+      background: #c7f4a3;
+    }
+
+    @media (max-width: 720px) {
+      .archive-topbar {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 18px;
+        padding-bottom: 12px;
+      }
+
+      .archive-nav {
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+      }
+
+      .archive-nav a {
+        padding: 10px 0 14px;
+        font-size: 10px;
+      }
+
+      .archive-nav a::after {
+        bottom: 8px;
+      }
+    }
+
+  </style>
 </head>
-<body data-page="home">
-  <a class="skip-link" href="#main">본문 바로가기</a>
-  <header class="site-header">
-    <a class="brand" href="HOME.html" aria-label="Tourism Content Archive 홈">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span>TOURISM<br>ARCHIVE</span>
-    </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-      <span class="sr-only">메뉴 열기</span><span></span><span></span>
-    </button>
-    <nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴">
-      <a href="HOME.html" data-nav="home">HOME</a>
-      <a href="report.html" data-nav="report">REPORT</a>
-      <a href="contents.html" data-nav="contents">CONTENTS</a>
-      <a href="sns.html" data-nav="sns">SNS</a>
-      <a href="final.html" data-nav="final">FINAL PROJECT</a>
-    </nav>
-  </header>
 
-  <main id="main">
-    <section class="home-hero section-pad">
-      <div class="eyebrow reveal"><span>SK PLANET</span> TOURISM CONTENT PROJECT · 2026</div>
-      <div class="hero-title-wrap reveal">
-        <h1>Explore the place,<br><em>create the story.</em></h1>
-        <p>관광 자원을 관찰하고, 새로운 시선으로 기록하며,<br>사람들의 여행을 움직이는 콘텐츠를 만듭니다.</p>
-      </div>
-      <div class="hero-visual reveal" role="img" aria-label="추후 프로젝트 대표 이미지가 들어갈 배너 영역">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <span class="visual-label">BANNER IMAGE<br>COMING SOON</span>
-        <span class="visual-index">01</span>
-        <div class="visual-orbit" aria-hidden="true"><span></span></div>
-      </div>
-    </section>
+<body>
 
-    <section class="intro section-pad reveal">
-      <p class="section-number">01 / ABOUT</p>
-      <div class="intro-copy">
-        <h2>관광과 콘텐츠 사이,<br>우리의 발견을 모읍니다.</h2>
-        <div>
-          <p>이 웹사이트는 SK플래닛 관광 콘텐츠 제작 프로젝트에서 진행한 리서치, 기획, 제작물과 데이터 인사이트를 한곳에 기록하는 디지털 아카이브입니다.</p>
-          <p class="muted">각 메뉴에는 프로젝트가 진행되는 동안 새로운 자료와 결과물이 차례로 업데이트됩니다.</p>
+<header class="archive-topbar">
+  <a class="archive-brand" href="HOME.html" aria-label="Tourism Content Archive 홈">
+    <span class="archive-brand-mark" aria-hidden="true"></span>
+    <span>TOURISM<br>ARCHIVE</span>
+  </a>
+  <nav class="archive-nav" aria-label="주요 메뉴">
+    <a class="is-current" href="HOME.html" aria-current="page">HOME</a>
+    <a href="report.html">REPORT</a>
+    <a href="contents.html">CONTENTS</a>
+    <a href="sns.html">SNS</a>
+    <a href="final.html">FINAL PROJECT</a>
+  </nav>
+</header>
+
+
+  <main class="page" id="main">
+
+    <!-- HEADER -->
+    <header>
+
+      <div class="top-meta">
+
+        <span>BUSANHAN HARU</span>
+
+        <div class="top-meta-right">
+          <span>VERSION 1.0</span>
+          <span>DATE 2026.09</span>
         </div>
+
       </div>
+
+      <div class="hero">
+
+        <h1>Brand Identity Guidelines</h1>
+
+        <p>CI 가이드라인 및 로고 사용 규정</p>
+
+      </div>
+
+    </header>
+
+
+    <!-- PRIMARY LOGO -->
+    <section class="section">
+
+      <div class="section-header">
+
+        <span class="section-number">01</span>
+
+        <span class="section-title">
+          주요 로고
+        </span>
+
+        <span class="section-en">
+          PRIMARY LOGO
+        </span>
+
+      </div>
+
+
+      <div class="primary-grid">
+
+        <div class="logo-preview">
+
+          <div class="logo">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+        </div>
+
+
+        <div class="primary-content">
+
+          <span class="badge">
+            PRIMARY SYMBOL & MARK
+          </span>
+
+          <h2>
+            하루를 따라가면 보이는 부산
+          </h2>
+
+          <p>
+            부산한 하루는 부산의 일상성과 로컬 감성을 담은
+            집 형태의 프레임을 중심으로, 부산의 이니셜을
+            추상화한 모노그램 심볼이 결합된 로고입니다.
+            <br><br>
+            상단의 오렌지 컬러 원형 모티프는 하루의 시작과
+            따뜻한 햇살을, 블루 포인트는 부산의 바다와
+            생동감 있는 일상을 상징합니다.
+            <br><br>
+            로고 사용 시에는 심볼과 워드마크의 비율,
+            간격, 색상 체계가 임의로 변경되지 않도록
+            주의하며, 지정된 원본 데이터를 기준으로
+            사용해야 합니다.
+          </p>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <section class="archive-menu section-pad">
-      <div class="section-heading reveal">
-        <p class="section-number">02 / ARCHIVE</p>
-        <h2>Inside the project</h2>
+
+    <!-- COLOR -->
+    <section class="section">
+
+      <div class="section-header">
+
+        <span class="section-number">02</span>
+
+        <span class="section-title">
+          컬러 팔레트
+        </span>
+
+        <span class="section-en">
+          COLOR PALETTE
+        </span>
+
       </div>
-      <div class="archive-list">
-        <a class="archive-link reveal" href="report.html"><span class="archive-no">01</span><strong>Report</strong><small>Research &amp; Planning</small><span class="arrow">↗</span></a>
-        <a class="archive-link reveal" href="contents.html"><span class="archive-no">02</span><strong>Contents</strong><small>Cards &amp; Videos</small><span class="arrow">↗</span></a>
-        <a class="archive-link reveal" href="sns.html"><span class="archive-no">03</span><strong>SNS</strong><small>Data &amp; Insights</small><span class="arrow">↗</span></a>
-        <a class="archive-link reveal" href="final.html"><span class="archive-no">04</span><strong>Final Project</strong><small>Team Outcomes</small><span class="arrow">↗</span></a>
+
+
+      <div class="palette">
+
+        <!-- BLUE -->
+        <div class="color-card">
+
+          <div
+            class="color-swatch"
+            style="background:#2765F6"
+          ></div>
+
+          <div class="color-details">
+            <strong>주요 블루</strong>
+            <span>Primary Blue</span>
+            <span>HEX : #2765F6</span>
+            <span>RGB : 39, 101, 246</span>
+          </div>
+
+        </div>
+
+
+        <!-- BLACK -->
+        <div class="color-card">
+
+          <div
+            class="color-swatch"
+            style="background:#1A1A1A"
+          ></div>
+
+          <div class="color-details">
+            <strong>주요 블랙</strong>
+            <span>Primary Black</span>
+            <span>HEX : #1A1A1A</span>
+            <span>RGB : 26, 26, 26</span>
+          </div>
+
+        </div>
+
+
+        <!-- WHITE -->
+        <div class="color-card">
+
+          <div
+            class="color-swatch"
+            style="background:#FFFFFF"
+          ></div>
+
+          <div class="color-details">
+            <strong>순백색</strong>
+            <span>White Background</span>
+            <span>HEX : #FFFFFF</span>
+            <span>RGB : 255, 255, 255</span>
+          </div>
+
+        </div>
+
+
+        <!-- ORANGE -->
+        <div class="color-card">
+
+          <div
+            class="color-swatch"
+            style="background:#FF7A32"
+          ></div>
+
+          <div class="color-details">
+            <strong>보조 오렌지</strong>
+            <span>Secondary Orange</span>
+            <span>HEX : #FF7A32</span>
+            <span>RGB : 255, 122, 50</span>
+          </div>
+
+        </div>
+
+
+        <!-- NAVY -->
+        <div class="color-card">
+
+          <div
+            class="color-swatch"
+            style="background:#18356F"
+          ></div>
+
+          <div class="color-details">
+            <strong>보조 네이비</strong>
+            <span>Secondary Navy</span>
+            <span>HEX : #18356F</span>
+            <span>RGB : 24, 53, 111</span>
+          </div>
+
+        </div>
+
       </div>
+
     </section>
+
+
+    <!-- CLEAR + MINIMUM -->
+    <div class="double-section">
+
+
+      <!-- CLEAR SPACE -->
+      <section>
+
+        <div class="section-header">
+
+          <span class="section-number">03</span>
+
+          <span class="section-title">
+            로고 여백 규정
+          </span>
+
+          <span class="section-en">
+            CLEAR SPACE
+          </span>
+
+        </div>
+
+
+        <div class="clear-space-box">
+
+          <div class="safe-area">
+
+            <span class="safe-label top">1x</span>
+            <span class="safe-label bottom">1x</span>
+            <span class="safe-label left">1x</span>
+            <span class="safe-label right">1x</span>
+
+
+            <div class="logo logo-small">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+          </div>
+
+        </div>
+
+        <p class="description">
+          로고 주변에는 시각적 독립성을 위한 일정한
+          최소 여백을 확보해야 합니다.
+          어떠한 타입의 기준에도 로고 사용 주위에는
+          최소 단위 1x의 공간을 유지합니다.
+        </p>
+
+      </section>
+
+
+      <!-- MINIMUM SIZE -->
+      <section>
+
+        <div class="section-header">
+
+          <span class="section-number">04</span>
+
+          <span class="section-title">
+            최소 크기 규정
+          </span>
+
+          <span class="section-en">
+            MINIMUM SIZE
+          </span>
+
+        </div>
+
+
+        <div class="minimum-box">
+
+          <div class="size-item">
+
+            <div class="size-name">
+              <strong>디지털 Digital</strong>
+              <span>Minimum Width</span>
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="size-value">
+              <img class="minimum-logo-sample minimum-logo-digital" src="assets/images/home/busanhanharu-logo.png" alt="디지털 최소 권장 크기 32픽셀의 부산한 하루 로고">
+              <span class="minimum-size-copy">
+                <strong>32px</strong>
+                <span>최소 권장 너비</span>
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="size-item">
+
+            <div class="size-name">
+              <strong>인쇄 Print</strong>
+              <span>Minimum Width</span>
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="size-value">
+              <img class="minimum-logo-sample minimum-logo-print" src="assets/images/home/busanhanharu-logo.png" alt="인쇄 최소 권장 크기 15밀리미터의 부산한 하루 로고">
+              <span class="minimum-size-copy">
+                <strong>15mm</strong>
+                <span>최소 권장 너비</span>
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="description">
+          브랜드 로고의 형태와 가독성을 유지하기 위해
+          지정된 최소 크기 이하로 축소하여 사용하지 않습니다.
+        </p>
+
+      </section>
+
+    </div>
+
+
+    <!-- WRONG -->
+    <section class="section">
+
+      <div class="section-header">
+
+        <span class="section-number">05</span>
+
+        <span class="section-title">
+          로고 사용 금지 사항
+        </span>
+
+        <span class="section-en">
+          INCORRECT USAGE / DON'TS
+        </span>
+
+      </div>
+
+
+      <div class="wrong-grid">
+
+
+        <div class="wrong-card">
+
+          <div class="wrong-preview">
+
+            <span class="wrong-label">
+              INCORRECT
+            </span>
+
+            <div class="logo logo-tiny wrong-stretch">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+            <span class="red-line"></span>
+
+          </div>
+
+          <div class="wrong-description">
+            <strong>비례 및 형태의 왜곡</strong>
+            <span>가로·세로 비율을 변경하지 않습니다.</span>
+          </div>
+
+        </div>
+
+
+        <div class="wrong-card">
+
+          <div class="wrong-preview">
+
+            <span class="wrong-label">
+              INCORRECT
+            </span>
+
+            <div class="logo logo-tiny wrong-rotate">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+            <span class="red-line"></span>
+
+          </div>
+
+          <div class="wrong-description">
+            <strong>로고 각도의 임의 변경</strong>
+            <span>지정된 각도를 유지합니다.</span>
+          </div>
+
+        </div>
+
+
+        <div class="wrong-card">
+
+          <div class="wrong-preview">
+
+            <span class="wrong-label">
+              INCORRECT
+            </span>
+
+            <div class="logo logo-tiny wrong-small">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+            <span class="red-line"></span>
+
+          </div>
+
+          <div class="wrong-description">
+            <strong>규정 외의 임의 적용</strong>
+            <span>지정된 최소 크기를 준수합니다.</span>
+          </div>
+
+        </div>
+
+
+        <div class="wrong-card">
+
+          <div class="wrong-preview">
+
+            <span class="wrong-label">
+              INCORRECT
+            </span>
+
+            <div class="logo logo-tiny wrong-opacity">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+            <span class="red-line"></span>
+
+          </div>
+
+          <div class="wrong-description">
+            <strong>낮은 투명도 적용</strong>
+            <span>임의로 투명도를 변경하지 않습니다.</span>
+          </div>
+
+        </div>
+
+
+        <div class="wrong-card">
+
+          <div class="wrong-preview">
+
+            <span class="wrong-label">
+              INCORRECT
+            </span>
+
+            <div class="logo logo-tiny wrong-shadow">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+            <span class="red-line"></span>
+
+          </div>
+
+          <div class="wrong-description">
+            <strong>효과 및 그림자 적용</strong>
+            <span>별도의 효과를 추가하지 않습니다.</span>
+          </div>
+
+        </div>
+
+
+        <div class="wrong-card">
+
+          <div class="wrong-preview pattern">
+
+            <span class="wrong-label">
+              INCORRECT
+            </span>
+
+            <div class="logo-white-box">
+              <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+            </div>
+
+            <span class="red-line"></span>
+
+          </div>
+
+          <div class="wrong-description">
+            <strong>복잡한 이미지 위 배치</strong>
+            <span>로고 식별성이 떨어지는 배경을 피합니다.</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BACKGROUND -->
+    <section class="section">
+
+      <div class="section-header">
+
+        <span class="section-number">06</span>
+
+        <span class="section-title">
+          배경 대비 및 활용
+        </span>
+
+        <span class="section-en">
+          BACKGROUND USAGE
+        </span>
+
+      </div>
+
+
+      <div class="background-grid">
+
+
+        <div class="background-card white-bg">
+
+          <div class="logo logo-tiny">
+            <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+          </div>
+
+          <h3>
+            On White Background
+          </h3>
+
+          <p>
+            기본 컬러 로고 사용 권장
+          </p>
+
+        </div>
+
+
+        <div class="background-card dark-bg">
+
+          <div class="logo-white-box">
+              <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+            </div>
+
+          <h3>
+            On Dark Background
+          </h3>
+
+          <p>
+            화이트 영역 또는 반전 로고 사용
+          </p>
+
+        </div>
+
+
+        <div class="background-card orange-bg">
+
+          <div class="logo-white-box">
+              <img src="assets/images/home/busanhanharu-logo.png" alt="부산한 하루 로고">
+            </div>
+
+          <h3>
+            On Orange Background
+          </h3>
+
+          <p>
+            화이트 배경 박스 조합 권장
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+      <span>
+        BUSANHAN HARU BRAND IDENTITY
+      </span>
+
+      <div class="guide-social" aria-label="소셜 미디어">
+        <a href="https://www.instagram.com/life__of_the_valley/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 새 창에서 열기">IG</a>
+        <a href="https://www.youtube.com/@busanhanharu" target="_blank" rel="noopener noreferrer" aria-label="유튜브 새 창에서 열기">YT</a>
+      </div>
+
+      <span>
+        © 2026 부산한 하루
+      </span>
+
+    </footer>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-brand"><span class="brand-mark" aria-hidden="true"></span><strong>TOURISM CONTENT ARCHIVE</strong></div>
-    <p>SK플래닛 관광 콘텐츠 제작 프로젝트</p>
-    <p>© <span data-year></span> All rights reserved.</p>
-    <div class="footer-social" aria-label="소셜 미디어">
-      <a href="https://www.instagram.com/life__of_the_valley/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 새 창에서 열기" title="Instagram"><span class="social-icon instagram-icon" aria-hidden="true"></span><span class="sr-only">Instagram</span></a>
-      <a href="https://www.youtube.com/@busanhanharu" target="_blank" rel="noopener noreferrer" aria-label="유튜브 새 창에서 열기" title="YouTube"><span class="social-icon youtube-icon" aria-hidden="true"></span><span class="sr-only">YouTube</span></a>
-    </div>
-  </footer>
 </body>
 </html>
