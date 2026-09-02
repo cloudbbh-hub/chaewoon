@@ -101,39 +101,48 @@ document.addEventListener("DOMContentLoaded", () => {
   if (resourceSearch) resourceSearch.addEventListener("input", updateResources);
 
   const resourceData = {
-    cheonghak: {
+    gwangalli: {
       number: "01",
       type: "자연·경관 관광 자원",
-      title: "청학배수지전망대",
-      lead: "관광객이 모르는 영도의 마을과 항구 야경을 잇는 로컬 여행",
-      description: "봉래산 자락의 조용한 마을길 끝에서 부산항과 영도의 풍경을 한눈에 만나는 전망 공간입니다. 붐비는 관광지를 벗어나 산책하듯 오를 수 있고, 해가 지면 항구의 불빛이 마을 풍경과 자연스럽게 이어집니다.",
-      address: "부산광역시 영도구 와치로 36",
-      time: "봄·가을 · 일몰 30분 전부터 야간",
-      photoWord: "SUNSET",
-      images: ["assets/images/report/cheonghak-01.jpg", "assets/images/report/cheonghak-02.jpg"],
-      imageAlts: ["청학배수지전망대에서 바라본 부산항대교 야경", "야간 조명이 켜진 청학배수지전망대"],
-      credit: "사진 출처: 한국관광공사 · 사진작가 Dodream",
-      guide: { hours: "연중 상시 개방", closed: "별도 휴무 없음", fee: "무료", reservation: "예약 없이 이용", transport: "버스 하차 후 도보 이동", transit: "5·9·85·101번 버스 활용", parking: "전용 주차장 없음", tip: "일몰 30분 전에 도착하면 낮 풍경부터 항구 야경까지 함께 볼 수 있습니다.", duration: "추천 60–90분" },
+      locationLabel: "BUSAN · SUYEONG",
+      title: "광안리해수욕장",
+      lead: "낮의 푸른 바다부터 광안대교 야경까지 이어지는 부산의 도심 해변",
+      description: "광안리해수욕장은 해변 정면으로 광안대교가 펼쳐지는 부산의 대표 해변입니다. 낮에는 백사장과 바다를 따라 산책하고, 저녁에는 다리 조명과 야경을 감상할 수 있습니다. 해변을 따라 오션뷰 카페와 레스토랑, 소품샵과 복합문화공간이 이어져 낮부터 밤까지 다양한 분위기를 즐길 수 있습니다.",
+      address: "부산광역시 수영구 광안해변로 219",
+      time: "사계절 · 일몰 전부터 야간",
+      photoWord: "OCEAN",
+      images: ["assets/images/report/gwangalli-landscape.jpg", "assets/images/report/gwangalli-02.jpg"],
+      imageAlts: ["광안리해수욕장과 광안대교 전경", "광안대교 조명이 비친 광안리해수욕장 야경"],
+      credit: "사진 출처: 부산광역시·부산관광공사, 부산광역시 수영구",
+      guide: { hours: "해변 연중 상시 개방", closed: "해수욕장 운영 기간은 계절별 확인", fee: "무료", reservation: "예약 없이 이용", transport: "금련산역·광안역에서 도보", transit: "도시철도 2호선 이용", parking: "인근 공영·민영주차장 이용", tip: "일몰 전에 도착해 낮 풍경을 보고 야경까지 이어서 감상해 보세요. 토요일 드론쇼는 방문 전 공식 일정을 확인하는 것이 좋습니다.", duration: "추천 2–3시간" },
       nearby: [
-        { no: "01", name: "봉래산", text: "영도의 능선과 부산항을 함께 조망하는 산책 명소", distance: "차량 약 8분" },
-        { no: "02", name: "조내기 고구마 역사공원", text: "영도 고구마의 이야기를 담은 작은 역사 공원", distance: "차량 약 7분" },
-        { no: "03", name: "흰여울문화마을", text: "바다와 절벽길이 이어지는 영도의 대표 산책 코스", distance: "차량 약 12분" }
+        { no: "01", name: "광안리해변 테마거리", text: "바다와 광안대교를 따라 산책과 포토 스폿을 즐기는 해변 거리", distance: "도보 약 1분" },
+        { no: "02", name: "민락수변공원", text: "바다 가까이에서 광안대교와 도심 야경을 감상하는 수변 공간", distance: "도보 약 15분" },
+        { no: "03", name: "민락회타운", text: "싱싱한 해산물과 부산의 바다 식문화를 만나는 로컬 명소", distance: "도보 약 12분" }
       ],
-      tags: ["#영도야경", "#로컬산책", "#일몰명소"],
-      score: "4.8",
+      tags: ["#광안리해수욕장", "#광안대교야경", "#오션뷰카페", "#광안리소품샵"],
+      score: "4.9",
+      programNav: "가볼 만한 곳",
+      programKicker: "CAFE & SHOP",
+      programTitle: "가볼 만한 곳",
+      programDescription: "해변 산책과 함께 들르기 좋은 카페·소품샵·복합문화공간",
+      programLabel: "PLACE",
+      programItemKicker: "GWANGALLI LOCAL SPOT",
       programs: [
-        { no: "01", image: "assets/images/report/cheonghak-program-01.jpg", source: "사진: yakei.jp", title: "선셋 나이트 뷰 워크", text: "마을길을 따라 전망대에 올라 일몰에서 항구 야경으로 변하는 풍경을 감상하는 산책 코스입니다.", meta: ["매일", "일몰 30분 전", "약 60분"] },
-        { no: "02", image: "assets/images/report/cheonghak-program-02.jpg", source: "사진: yakei.jp", title: "영도 야경 포토 산책", text: "전망대와 주변 골목의 촬영 포인트를 천천히 둘러보며 영도의 저녁 풍경을 기록합니다.", meta: ["주말", "18:00", "약 80분"] }
+        { no: "01", image: "assets/images/report/gwangalli-place-cafe.jpg", source: "사진: 트리플", title: "카페오뜨 광안비치점", text: "통창과 루프탑에서 광안리 바다와 광안대교를 바라보며 음료와 디저트를 즐길 수 있는 오션뷰 카페입니다.", meta: ["오션뷰 카페", "광안해변로 209", "해변 도보 약 2분"] },
+        { no: "02", image: "assets/images/report/gwangalli-place-giftshop.jpg", source: "사진: 한국관광공사 TourAPI", title: "러브이즈기빙", text: "부산 여행을 기억할 문구, 액세서리와 아기자기한 리빙 아이템을 둘러볼 수 있는 광안리 로컬 소품샵입니다.", meta: ["소품샵", "광안로49번길 24", "해변 도보 약 5분"] },
+        { no: "03", image: "assets/images/report/gwangalli-place-market.jpg", source: "사진: designboom", title: "밀락더마켓", text: "카페와 먹거리, 팝업스토어와 소품을 한 공간에서 만나는 광안리 해변 인근의 복합문화공간입니다.", meta: ["복합문화공간", "카페·팝업·소품", "민락수변로17번길 56"] }
       ],
       reviews: [
-        { author: "김**", date: "2026.08", stars: "★★★★★", title: "조용히 야경을 즐기기 좋은 곳", text: "관광객이 많은 전망대와 달리 동네 풍경을 함께 볼 수 있어 좋았어요. 일몰 전에 올라가니 부산항의 변화가 정말 아름다웠습니다." },
-        { author: "박**", date: "2026.07", stars: "★★★★★", title: "산책 코스로 추천해요", text: "오르는 길도 어렵지 않고 사진 찍기 좋은 지점이 많았습니다. 밤에는 길이 어두울 수 있어 밝을 때 출발하는 것을 추천합니다." },
-        { author: "이**", date: "2026.05", stars: "★★★★☆", title: "영도의 숨은 전망 포인트", text: "화려한 시설보다 마을과 항구의 분위기를 느끼고 싶은 사람에게 잘 맞는 장소였습니다." }
+        { author: "김**", date: "2026.08", stars: "★★★★★", title: "낮과 밤이 모두 아름다운 해변", text: "일몰 전에 도착해 바다를 걷고 광안대교 조명이 켜지는 순간까지 봤어요. 해변 주변에 카페가 많아 쉬어가기에도 좋았습니다." },
+        { author: "박**", date: "2026.07", stars: "★★★★★", title: "카페와 소품샵까지 함께 둘러봤어요", text: "해변 산책 후 오션뷰 카페와 소품샵을 이어서 방문하니 반나절 코스로 알찼습니다. 대중교통으로 접근하기도 편했어요." },
+        { author: "이**", date: "2026.05", stars: "★★★★☆", title: "토요일 저녁 분위기가 특별해요", text: "드론쇼와 광안대교 야경이 인상적이었어요. 주말에는 사람이 많아 조금 일찍 도착하는 것을 추천합니다." }
       ]
     },
     kkangkangee: {
       number: "02",
       type: "역사·문화 관광 자원",
+      locationLabel: "BUSAN · YEONGDO",
       title: "깡깡이마을",
       lead: "부산에서 100년 넘게 들린 소리",
       description: "수리조선소에서 녹슨 배의 표면을 망치로 두드리던 ‘깡깡’ 소리에서 이름을 얻은 마을입니다. 오래된 산업 현장과 주민의 삶, 공공예술이 골목마다 겹쳐져 영도만의 독특한 시간과 이야기를 만날 수 있습니다.",
@@ -164,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
     space307: {
       number: "03",
       type: "체험·레저 관광 자원",
+      locationLabel: "BUSAN · YEONGDO",
       title: "영도공간 307",
       lead: "영도 바닷가 창고 안에 숨겨진 무료 디지털 놀이터",
       description: "해양 산업 공간의 분위기를 살린 창고형 실내 체험 시설입니다. 대형 디지털 스크린과 스포츠 콘텐츠를 무료로 경험할 수 있어 날씨와 계절에 상관없이 영도 여행에 활동적인 장면을 더합니다.",
@@ -198,11 +208,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalNavButtons = [...document.querySelectorAll("[data-modal-target]")];
   let lastFocusedElement = null;
 
-  const renderPrograms = (programs) => programs.map((program) => `
+  const renderPrograms = (programs, label = "PROGRAM", itemKicker = "LOCAL EXPERIENCE") => programs.map((program) => `
     <article class="program-item">
-      <div class="program-art has-image"><img src="${program.image}" alt="${program.title} 이미지"><span>PROGRAM ${program.no}</span><small>${program.source}</small></div>
+      <div class="program-art has-image"><img src="${program.image}" alt="${program.title} 이미지"><span>${label} ${program.no}</span><small>${program.source}</small></div>
       <div class="program-copy">
-        <span>LOCAL EXPERIENCE</span>
+        <span>${itemKicker}</span>
         <h3>${program.title}</h3>
         <p>${program.text}</p>
         <div class="program-meta">${program.meta.map((item) => `<b>${item}</b>`).join("")}</div>
@@ -229,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastFocusedElement = trigger;
     setModalText("[data-modal-number]", data.number);
     setModalText("[data-modal-type]", data.type);
+    setModalText("[data-modal-location]", data.locationLabel || "BUSAN");
     setModalText("[data-modal-title]", data.title);
     setModalText("[data-modal-lead]", data.lead);
     setModalText("[data-modal-description]", data.description);
@@ -247,6 +258,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setModalText("[data-guide-parking]", data.guide.parking);
     setModalText("[data-guide-tip]", data.guide.tip);
     setModalText("[data-guide-duration]", data.guide.duration);
+    setModalText("[data-modal-program-nav]", data.programNav || "체험 프로그램");
+    setModalText("[data-modal-program-kicker]", data.programKicker || "EXPERIENCE");
+    setModalText("[data-modal-program-title]", data.programTitle || "체험 프로그램");
+    setModalText("[data-modal-program-description]", data.programDescription || "이 장소를 더 깊이 경험하는 방법");
     setModalText("[data-nearby-start]", data.title);
     const mainImage = resourceModal.querySelector("[data-modal-image-main]");
     const subImage = resourceModal.querySelector("[data-modal-image-sub]");
@@ -255,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
     subImage.src = data.images[1];
     subImage.alt = data.imageAlts[1];
     resourceModal.querySelector("[data-modal-tags]").innerHTML = data.tags.map((tag) => `<b>${tag}</b>`).join("");
-    resourceModal.querySelector("[data-modal-programs]").innerHTML = renderPrograms(data.programs);
+    resourceModal.querySelector("[data-modal-programs]").innerHTML = renderPrograms(data.programs, data.programLabel, data.programItemKicker);
     resourceModal.querySelector("[data-modal-reviews]").innerHTML = renderReviews(data.reviews);
     resourceModal.querySelector("[data-modal-nearby]").innerHTML = renderNearby(data.nearby);
     const mapFrame = resourceModal.querySelector("[data-modal-map]");

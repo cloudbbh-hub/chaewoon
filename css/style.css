@@ -146,12 +146,12 @@ h1, h2, h3 { line-height: 1.08; }
 .visual-space307 { background: var(--green); }
 .visual-space307 .landscape-mark { left: 12%; top: 33%; width: 46%; height: 46%; border-radius: 50%; background: white; transform: none; }
 .visual-space307 .landscape-mark::before { left: 50%; top: -30%; width: 1px; height: 160%; background: var(--ink); transform: none; }
-.visual-cheonghak, .visual-kkangkangee, .visual-space307 { color: white; background-color: #30312e; background-size: cover; background-position: center; }
-.visual-cheonghak { background-image: linear-gradient(to top, rgba(10,15,19,.68), rgba(10,15,19,.05) 65%), url("../assets/images/report/cheonghak-01.jpg"); }
+.visual-gwangalli, .visual-kkangkangee, .visual-space307 { color: white; background-color: #30312e; background-size: cover; background-position: center; }
+.visual-gwangalli { background-image: linear-gradient(to top, rgba(10,15,19,.68), rgba(10,15,19,.05) 65%), url("../assets/images/report/gwangalli-landscape.jpg"); }
 .visual-kkangkangee { background-image: linear-gradient(to top, rgba(10,15,19,.68), rgba(10,15,19,.05) 65%), url("../assets/images/report/kkangkangee-01.jpg"); }
 .visual-space307 { background-image: linear-gradient(to top, rgba(10,15,19,.68), rgba(10,15,19,.05) 65%), url("../assets/images/report/space307-home-01.jpg"); }
-.visual-cheonghak::before, .visual-kkangkangee::before, .visual-space307::before { opacity: .14; }
-.visual-cheonghak::after, .visual-kkangkangee::after, .visual-space307::after, .visual-cheonghak .landscape-mark, .visual-kkangkangee .landscape-mark, .visual-space307 .landscape-mark { display: none; }
+.visual-gwangalli::before, .visual-kkangkangee::before, .visual-space307::before { opacity: .14; }
+.visual-gwangalli::after, .visual-kkangkangee::after, .visual-space307::after, .visual-gwangalli .landscape-mark, .visual-kkangkangee .landscape-mark, .visual-space307 .landscape-mark { display: none; }
 .resource-visual > strong, .resource-visual-label { text-shadow: 0 2px 18px rgba(0,0,0,.35); }
 .resource-card-body { padding: 27px 26px 30px; }
 .resource-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
