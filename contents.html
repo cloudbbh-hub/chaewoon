@@ -7,14 +7,19 @@
 </head>
 <body data-page="contents">
   <a class="skip-link" href="#main">본문 바로가기</a>
-  <header class="site-header"><a class="brand" href="index.html" aria-label="홈"><span class="brand-mark"></span><span>TOURISM<br>ARCHIVE</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button><nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴"><a href="HOME.html" data-nav="home">HOME</a><a href="report.html" data-nav="report">REPORT</a><a href="contents.html" data-nav="contents">CONTENTS</a><a href="sns.html" data-nav="sns">SNS</a><a href="final.html" data-nav="final">FINAL PROJECT</a></nav></header>
+  <header class="site-header"><a class="brand" href="index.html" aria-label="홈"><span class="brand-mark"></span><span>TOURISM<br>ARCHIVE</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button><nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴"><a href="HOME.html" data-nav="home">HOME</a><a href="report.html" data-nav="report">REPORT</a><a href="service.html" data-nav="service">SERVICE</a><a href="contents.html" data-nav="contents">CONTENTS</a><a href="sns.html" data-nav="sns">SNS</a><a href="final.html" data-nav="final">FINAL PROJECT</a></nav></header>
   <main id="main">
     <section class="page-hero section-pad"><div><p class="eyebrow">02 / CREATIVE OUTPUT</p><h1>Contents<span class="dot">.</span></h1></div><p>기획을 이미지와 영상으로 전환한<br>실제 제작 결과물을 모읍니다.</p><div class="hero-shape shape-contents" aria-hidden="true"><span>C</span></div></section>
     <section class="content-section section-pad">
       <div class="section-heading split-heading reveal"><div><p class="section-number">CONTENT LIBRARY</p><h2>제작 콘텐츠</h2></div><p>카드뉴스와 숏폼 영상 등 프로젝트의 모든 결과물을 유형별로 확인할 수 있습니다.</p></div>
       <div class="toolbar reveal"><div class="filter-group"><button class="filter is-active" data-content-filter="all">전체</button><button class="filter" data-content-filter="card">카드뉴스</button><button class="filter" data-content-filter="video">영상</button></div><p class="result-count"><strong data-result-count>6</strong> Contents</p></div>
       <div class="content-grid">
-        <article class="content-card reveal" data-content-type="card"><div class="content-thumb thumb-one"><span class="thumb-type">CARD NEWS</span><strong>PLACE<br>STORY<br>01</strong><span class="thumb-page">01 / 08</span></div><div class="card-meta"><div><p>관광 자원 A</p><h3>지역의 숨은 이야기를 발견하다</h3></div><span>2026.08</span></div></article>
+        <article class="content-card reveal" data-content-type="card">
+          <button class="content-card-button" type="button" data-cardnews-open aria-label="광안리 소품샵 카드뉴스 13장 보기">
+            <div class="content-thumb has-content-image"><img src="assets/images/contents/location-cardnews/slide-01.jpg" alt="소품샵 좋아한다면 광안리에서 여기부터 카드뉴스 표지"><span class="thumb-type">CARD NEWS</span><span class="thumb-page">01 / 13</span></div>
+            <div class="card-meta"><div><p>광안리 로컬 큐레이션</p><h3>소품샵 좋아한다면 광안리에서 여기부터</h3></div><span>2026.09</span></div>
+          </button>
+        </article>
         <article class="content-card reveal" data-content-type="video"><div class="content-thumb thumb-two"><span class="thumb-type">SHORT VIDEO</span><button class="play-button" type="button" aria-label="영상 재생 예정">▶</button><span class="thumb-page">00:30</span></div><div class="card-meta"><div><p>관광 자원 B</p><h3>30초로 만나는 낯선 풍경</h3></div><span>2026.08</span></div></article>
         <article class="content-card reveal" data-content-type="card"><div class="content-thumb thumb-three"><span class="thumb-type">CARD NEWS</span><strong>LOCAL<br>TASTE</strong><span class="thumb-page">01 / 10</span></div><div class="card-meta"><div><p>관광 자원 C</p><h3>한 접시에 담긴 지역의 계절</h3></div><span>Coming soon</span></div></article>
         <article class="content-card reveal" data-content-type="video"><div class="content-thumb thumb-four"><span class="thumb-type">INTERVIEW</span><button class="play-button" type="button" aria-label="영상 재생 예정">▶</button><span class="thumb-page">02:10</span></div><div class="card-meta"><div><p>로컬 인터뷰</p><h3>장소를 만드는 사람들의 목소리</h3></div><span>Coming soon</span></div></article>
@@ -22,6 +27,22 @@
         <article class="content-card reveal" data-content-type="video"><div class="content-thumb thumb-six"><span class="thumb-type">TRAVEL FILM</span><button class="play-button" type="button" aria-label="영상 재생 예정">▶</button><span class="thumb-page">01:20</span></div><div class="card-meta"><div><p>프로젝트 필름</p><h3>우리가 발견한 여행의 장면들</h3></div><span>Coming soon</span></div></article>
       </div>
     </section>
+
+    <div class="cardnews-modal" data-cardnews-modal hidden>
+      <div class="cardnews-backdrop" data-cardnews-close></div>
+      <section class="cardnews-dialog" role="dialog" aria-modal="true" aria-labelledby="cardnews-title">
+        <header class="cardnews-head">
+          <div><p>CARD NEWS · 13 PAGES</p><h2 id="cardnews-title">광안리 소품샵 큐레이션</h2></div>
+          <button class="cardnews-close" type="button" data-cardnews-close aria-label="카드뉴스 닫기"><span></span><span></span></button>
+        </header>
+        <div class="cardnews-viewer">
+          <button class="cardnews-arrow cardnews-prev" type="button" data-cardnews-prev aria-label="이전 카드">←</button>
+          <figure class="cardnews-stage"><img src="assets/images/contents/location-cardnews/slide-01.jpg" alt="광안리 소품샵 카드뉴스 1페이지" data-cardnews-image><figcaption><span data-cardnews-counter>01 / 13</span><span>버튼 또는 방향키로 넘겨보세요.</span></figcaption></figure>
+          <button class="cardnews-arrow cardnews-next" type="button" data-cardnews-next aria-label="다음 카드">→</button>
+        </div>
+        <div class="cardnews-thumbs" data-cardnews-thumbs aria-label="카드뉴스 페이지 선택"></div>
+      </section>
+    </div>
   </main>
   <footer class="site-footer">
     <div class="footer-brand"><span class="brand-mark" aria-hidden="true"></span><strong>TOURISM CONTENT ARCHIVE</strong></div>

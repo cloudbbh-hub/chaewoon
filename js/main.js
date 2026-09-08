@@ -350,6 +350,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const cardnewsSlides = Array.from({ length: 13 }, (_, index) => `assets/images/contents/location-cardnews/slide-${String(index + 1).padStart(2, "0")}.jpg`);
+  const cardnewsModal = document.querySelector("[data-cardnews-modal]");
+  const cardnewsImage = document.querySelector("[data-cardnews-image]");
+  const cardnewsCounter = document.querySelector("[data-cardnews-counter]");
+  const cardnewsThumbs = document.querySelector("[data-cardnews-thumbs]");
+  const cardnewsOpen = document.querySelector("[data-cardnews-open]");
+  let cardnewsIndex = 0;
+  let cardnewsLastFocus = null;
+
+  const updateCardnews = (nextIndex) => {
+    if (!cardnewsModal || !cardnewsImage) return;
+    cardnewsIndex = (nextIndex + cardnewsSlides.length) % cardnewsSlides.length;
+    cardnewsImage.src = cardnewsSlides[cardnewsIndex];
+    cardnewsImage.alt = `광안리 소품샵 카드뉴스 ${cardnewsIndex + 1}페이지`;
+    if (cardnewsCounter) cardnewsCounter.textContent = `${String(cardnewsIndex + 1).padStart(2, "0")} / ${cardnewsSlides.length}`;
+    cardnewsThumbs?.querySelectorAll("button").forEach((button, index) => {
+      button.classList.toggle("is-active", index === cardnewsIndex);
+      button.setAttribute("aria-current", index === cardnewsIndex ? "true" : "false");
+    });
+    const activeThumb = cardnewsThumbs?.querySelector(".is-active");
+    activeThumb?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  };
+
+  if (cardnewsThumbs) {
+    cardnewsThumbs.innerHTML = cardnewsSlides.map((slide, index) => `<button class="cardnews-thumb${index === 0 ? " is-active" : ""}" type="button" data-cardnews-index="${index}" aria-label="${index + 1}페이지 보기" aria-current="${index === 0 ? "true" : "false"}"><img src="${slide}" alt=""></button>`).join("");
+    cardnewsThumbs.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-cardnews-index]");
+      if (button) updateCardnews(Number(button.dataset.cardnewsIndex));
+    });
+  }
+
+  const openCardnews = () => {
+    if (!cardnewsModal) return;
+    cardnewsLastFocus = document.activeElement;
+    cardnewsModal.hidden = false;
+    body.classList.add("modal-open");
+    updateCardnews(0);
+        cardnewsModal.querySelector(".cardnews-close")?.focus();
+  };
+
+  const closeCardnews = () => {
+    if (!cardnewsModal || cardnewsModal.hidden) return;
+    cardnewsModal.hidden = true;
+    body.classList.remove("modal-open");
+    cardnewsLastFocus?.focus();
+  };
+
+  cardnewsOpen?.addEventListener("click", openCardnews);
+  document.querySelectorAll("[data-cardnews-close]").forEach((button) => button.addEventListener("click", closeCardnews));
+  document.querySelector("[data-cardnews-prev]")?.addEventListener("click", () => updateCardnews(cardnewsIndex - 1));
+  document.querySelector("[data-cardnews-next]")?.addEventListener("click", () => updateCardnews(cardnewsIndex + 1));
+  document.addEventListener("keydown", (event) => {
+    if (!cardnewsModal || cardnewsModal.hidden) return;
+    if (event.key === "Escape") closeCardnews();
+    if (event.key === "ArrowLeft") updateCardnews(cardnewsIndex - 1);
+    if (event.key === "ArrowRight") updateCardnews(cardnewsIndex + 1);
+  });
+
   window.addEventListener("resize", () => {
     if (window.innerWidth > 767 && body.classList.contains("menu-open")) {
       body.classList.remove("menu-open");
