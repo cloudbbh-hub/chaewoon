@@ -3,89 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="글 한 편을 선명한 카드뉴스로 바꾸는 AI 카드뉴스 에디터, PLY">
-  <meta name="theme-color" content="#101117">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="PLY — AI 카드뉴스 스튜디오">
-  <meta property="og:description" content="글 한 편을 선명한 카드뉴스로 바꾸고, 바로 편집하고 내보내세요.">
-  <meta property="og:image" content="/assets/images/og.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PLY — AI 카드뉴스 스튜디오">
-  <meta name="twitter:description" content="글 한 편을 선명한 카드뉴스로 바꾸고, 바로 편집하고 내보내세요.">
-  <meta name="twitter:image" content="/assets/images/og.png">
-  <title>PLY — AI 카드뉴스 스튜디오</title>
+  <meta name="description" content="SK플래닛 관광 콘텐츠 제작 과정과 결과물을 기록하는 디지털 아카이브">
+  <title>Tourism Content Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/cardnews.css">
-  <link rel="stylesheet" href="css/cardnews-polish.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
-  <script src="js/cardnews.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#workspace">편집기로 바로가기</a>
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="PLY 홈">
-      <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span class="brand-copy"><strong>PLY</strong><small>Cardnews studio</small></span>
+<body data-page="home">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Tourism Content Archive 홈">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>TOURISM<br>ARCHIVE</span>
     </a>
-    <div class="project-title"><span class="status-dot"></span><input id="deck-title" value="AI 시대, 일하는 방식의 변화" aria-label="프로젝트 이름"><span class="save-state" id="save-state">저장됨</span></div>
-    <div class="top-actions">
-      <button class="icon-button" id="import-json" type="button" title="덱 불러오기" aria-label="덱 불러오기">↥</button>
-      <button class="icon-button" id="export-json" type="button" title="덱 저장" aria-label="덱 저장">↧</button>
-      <button class="button ghost" id="preview-toggle" type="button">미리보기</button>
-      <button class="button primary" id="export-all" type="button"><span>전체 내보내기</span><b>ZIP</b></button>
-      <input id="json-file" type="file" accept="application/json" hidden>
-    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="sr-only">메뉴 열기</span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴">
+      <a href="HOME.html" data-nav="home">HOME</a>
+      <a href="report.html" data-nav="report">REPORT</a>
+      <a href="service.html" data-nav="service">SERVICE</a>
+      <a href="contents.html" data-nav="contents">CONTENTS</a>
+      <a href="sns.html" data-nav="sns">SNS</a>
+      <a href="final.html" data-nav="final">FINAL PROJECT</a>
+    </nav>
   </header>
 
-  <main class="workspace" id="workspace">
-    <aside class="filmstrip" aria-label="카드 목록">
-      <div class="panel-heading"><div><strong>카드</strong><span id="slide-count">06</span></div><button class="mini-button" id="add-slide" type="button" aria-label="카드 추가">＋</button></div>
-      <div class="slide-list" id="slide-list"></div>
-      <button class="new-slide" id="new-slide" type="button"><span>＋</span> 새 카드 추가</button>
-    </aside>
-
-    <section class="stage-shell" aria-label="카드 미리보기">
-      <div class="stage-toolbar">
-        <div class="style-picker"><label for="preset">스타일</label><select id="preset"><option value="cine">시네마틱</option><option value="mag">매거진 형광</option><option value="manga">만화 오버레이</option><option value="pixel">픽셀 인포</option><option value="doodle">도들</option><option value="blue">화이트 & 블루</option></select></div>
-        <div class="accent-control"><span>포인트</span><div class="swatches" id="swatches" aria-label="포인트 컬러"></div></div>
-        <button class="shuffle-button" id="shuffle-bg" type="button">↻ 배경 셔플</button>
+  <main id="main">
+    <section class="home-hero section-pad">
+      <div class="eyebrow reveal"><span>SK PLANET</span> TOURISM CONTENT PROJECT · 2026</div>
+      <div class="hero-title-wrap reveal">
+        <h1>Explore the place,<br><em>create the story.</em></h1>
+        <p>관광 자원을 관찰하고, 새로운 시선으로 기록하며,<br>사람들의 여행을 움직이는 콘텐츠를 만듭니다.</p>
       </div>
-      <div class="stage-area">
-        <div class="stage-meta"><span id="stage-index">01 / 06</span><span>1080 × 1350</span></div>
-        <div class="card-frame"><article class="card" id="card-preview" aria-live="polite"></article></div>
-        <div class="stage-actions"><button class="button dark" id="export-current" type="button">현재 카드 PNG</button><span>텍스트는 언제나 선명하게</span></div>
+      <div class="hero-visual reveal" role="img" aria-label="추후 프로젝트 대표 이미지가 들어갈 배너 영역">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <span class="visual-label">BANNER IMAGE<br>COMING SOON</span>
+        <span class="visual-index">01</span>
+        <div class="visual-orbit" aria-hidden="true"><span></span></div>
       </div>
     </section>
 
-    <aside class="inspector" aria-label="카드 편집 패널">
-      <div class="inspector-tabs" role="tablist"><button class="is-active" data-tab="content" type="button">내용</button><button data-tab="background" type="button">배경</button><button data-tab="settings" type="button">설정</button></div>
-      <section class="tab-panel is-active" data-panel="content">
-        <div class="panel-kicker"><span id="card-type-label">COVER</span><button id="delete-slide" type="button">카드 삭제</button></div>
-        <div id="field-editor"></div>
-        <div class="syntax-tip"><strong>텍스트 강조</strong><span><code>*단어*</code> 포인트색 · <code>**단어**</code> 굵게</span></div>
-      </section>
-      <section class="tab-panel" data-panel="background">
-        <div class="field-group"><label>배경 이미지</label><div class="upload-zone" id="upload-zone" tabindex="0" role="button"><span>＋</span><strong>이미지 업로드</strong><small>JPG, PNG · 세로형 권장</small></div><input type="file" id="bg-file" accept="image/*" hidden></div>
-        <div class="field-group"><label for="bg-url">이미지 URL</label><div class="input-action"><input id="bg-url" placeholder="https://..."><button id="apply-url" type="button">적용</button></div></div>
-        <div class="field-group range-field"><div><label for="scrim">하단 어둡게</label><output id="scrim-value">82%</output></div><input id="scrim" type="range" min="0" max="100" value="82"></div>
-      </section>
-      <section class="tab-panel" data-panel="settings">
-        <div class="field-group"><label for="handle">브랜드 핸들</label><input id="handle" value="@ply.studio"></div>
-        <div class="field-group"><label for="server-url">AI 서버 주소</label><input id="server-url" placeholder="현재 접속 주소 사용"></div>
-        <div class="connection"><span></span><div><strong>로컬 편집 모드</strong><small>빠른 변환과 편집 기능을 사용할 수 있어요.</small></div></div>
-        <button class="button danger" id="reset-deck" type="button">처음 상태로 초기화</button>
-      </section>
-      <div class="ai-composer">
-        <div class="ai-heading"><span class="spark">✦</span><div><strong>글로 카드 만들기</strong><small>기사, 대본, 메모를 붙여넣으세요</small></div></div>
-        <textarea id="source-text" rows="5" placeholder="첫 줄에는 제목을, 이어지는 줄에는 핵심 내용을 입력해보세요."></textarea>
-        <button class="ai-button" id="convert-text" type="button"><span>✦</span> AI로 덱 구성하기 <kbd>⌘ ↵</kbd></button>
+    <section class="intro section-pad reveal">
+      <p class="section-number">01 / ABOUT</p>
+      <div class="intro-copy">
+        <h2>관광과 콘텐츠 사이,<br>우리의 발견을 모읍니다.</h2>
+        <div>
+          <p>이 웹사이트는 SK플래닛 관광 콘텐츠 제작 프로젝트에서 진행한 리서치, 기획, 제작물과 데이터 인사이트를 한곳에 기록하는 디지털 아카이브입니다.</p>
+          <p class="muted">각 메뉴에는 프로젝트가 진행되는 동안 새로운 자료와 결과물이 차례로 업데이트됩니다.</p>
+        </div>
       </div>
-    </aside>
+    </section>
+
+    <section class="archive-menu section-pad">
+      <div class="section-heading reveal">
+        <p class="section-number">02 / ARCHIVE</p>
+        <h2>Inside the project</h2>
+      </div>
+      <div class="archive-list">
+        <a class="archive-link reveal" href="report.html"><span class="archive-no">01</span><strong>Report</strong><small>Research &amp; Planning</small><span class="arrow">↗</span></a>
+        <a class="archive-link reveal" href="service.html"><span class="archive-no">02</span><strong>Service</strong><small>Digital Product</small><span class="arrow">↗</span></a>
+        <a class="archive-link reveal" href="contents.html"><span class="archive-no">03</span><strong>Contents</strong><small>Cards &amp; Videos</small><span class="arrow">↗</span></a>
+        <a class="archive-link reveal" href="sns.html"><span class="archive-no">04</span><strong>SNS</strong><small>Data &amp; Insights</small><span class="arrow">↗</span></a>
+        <a class="archive-link reveal" href="final.html"><span class="archive-no">05</span><strong>Final Project</strong><small>Team Outcomes</small><span class="arrow">↗</span></a>
+      </div>
+    </section>
   </main>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <div class="preview-modal" id="preview-modal" hidden><button id="close-preview" type="button" aria-label="미리보기 닫기">×</button><div class="preview-grid" id="preview-grid"></div></div>
+
+  <footer class="site-footer">
+    <div class="footer-brand"><span class="brand-mark" aria-hidden="true"></span><strong>TOURISM CONTENT ARCHIVE</strong></div>
+    <p>SK플래닛 관광 콘텐츠 제작 프로젝트</p>
+    <p>© <span data-year></span> All rights reserved.</p>
+    <div class="footer-social" aria-label="소셜 미디어">
+      <a href="https://www.instagram.com/life__of_the_valley/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 새 창에서 열기" title="Instagram"><span class="social-icon instagram-icon" aria-hidden="true"></span><span class="sr-only">Instagram</span></a>
+      <a href="https://www.youtube.com/@busanhanharu" target="_blank" rel="noopener noreferrer" aria-label="유튜브 새 창에서 열기" title="YouTube"><span class="social-icon youtube-icon" aria-hidden="true"></span><span class="sr-only">YouTube</span></a>
+    </div>
+  </footer>
 </body>
 </html>
