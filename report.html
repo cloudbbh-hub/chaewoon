@@ -112,6 +112,37 @@
       </div>
       <p class="resource-empty" hidden>일치하는 관광 자원이 없습니다.</p>
     </section>
+
+    <section class="api-attractions section-pad" data-attraction-api>
+      <div class="api-attractions-head reveal">
+        <div>
+          <p class="section-number">BUSAN OPEN DATA</p>
+          <h2>부산 명소 둘러보기</h2>
+          <p>부산광역시 부산명소정보 서비스에서 불러온 최신 관광 정보를 확인합니다.</p>
+        </div>
+        <div class="api-connection" data-api-connection aria-live="polite">
+          <i aria-hidden="true"></i>
+          <span>API 연결 확인 중</span>
+        </div>
+      </div>
+
+      <div class="api-toolbar reveal">
+        <label class="api-search">
+          <span class="sr-only">API 관광 명소 검색</span>
+          <input type="search" data-api-search placeholder="명소명, 지역, 주소로 검색">
+          <span aria-hidden="true">⌕</span>
+        </label>
+        <button class="api-refresh" type="button" data-api-refresh>새로 불러오기 <span aria-hidden="true">↻</span></button>
+      </div>
+
+      <div class="api-attraction-status" data-api-status role="status">부산 관광 정보를 불러오고 있습니다.</div>
+      <div class="api-attraction-grid" data-api-grid aria-live="polite"></div>
+      <div class="api-attraction-footer">
+        <p>DATA SOURCE · 부산광역시 부산명소정보 서비스</p>
+        <button type="button" data-api-more hidden>명소 더 보기 <span aria-hidden="true">＋</span></button>
+      </div>
+    </section>
+
     <section class="content-section tint-section section-pad">
       <div class="section-heading reveal"><p class="section-number">CONTENT PLANNING</p><h2>SNS 콘텐츠 기획 프레임</h2></div>
       <div class="planning-grid">

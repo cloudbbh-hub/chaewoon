@@ -1,7 +1,11 @@
 {
-  "name": "ply-cardnews-studio",
+  "name": "busan-tourism-portfolio",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node scripts/build.mjs" }
+  "scripts": {
+    "start": "node server.js",
+    "setup-api": "node scripts/setup-api-key.mjs",
+    "build": "node scripts/build.mjs"
+  }
 }

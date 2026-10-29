@@ -408,6 +408,148 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.key === "ArrowRight") updateCardnews(cardnewsIndex + 1);
   });
 
+  const apiSection = document.querySelector("[data-attraction-api]");
+  if (apiSection) {
+    const apiGrid = apiSection.querySelector("[data-api-grid]");
+    const apiStatus = apiSection.querySelector("[data-api-status]");
+    const apiConnection = apiSection.querySelector("[data-api-connection]");
+    const apiSearch = apiSection.querySelector("[data-api-search]");
+    const apiRefresh = apiSection.querySelector("[data-api-refresh]");
+    const apiMore = apiSection.querySelector("[data-api-more]");
+    const pageSize = 12;
+    let apiPage = 1;
+    let apiTotal = 0;
+    let apiItems = [];
+    let apiLoading = false;
+
+    const escapeHtml = (value = "") => String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+    const plainText = (value = "") => {
+      const temporary = document.createElement("div");
+      temporary.innerHTML = String(value);
+      return (temporary.textContent || "").replace(/\s+/g, " ").trim();
+    };
+
+    const firstValue = (item, keys, fallback = "") => {
+      const key = keys.find((candidate) => item?.[candidate] !== undefined && item[candidate] !== null && String(item[candidate]).trim());
+      return key ? String(item[key]).trim() : fallback;
+    };
+
+    const safeUrl = (value) => {
+      try {
+        const url = new URL(value);
+        return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+      } catch {
+        return "";
+      }
+    };
+
+    const extractApiResult = (payload) => {
+      const root = payload?.getAttractionKr || payload?.response?.body || payload?.body || payload || {};
+      const rawItems = root.item || root.items?.item || root.items || [];
+      const items = Array.isArray(rawItems) ? rawItems : rawItems && typeof rawItems === "object" ? [rawItems] : [];
+      const total = Number(root.totalCount ?? root.total_count ?? items.length) || items.length;
+      const header = payload?.getAttractionKr?.header || payload?.response?.header || payload?.header;
+      const resultCode = header?.code ?? header?.resultCode;
+      if (resultCode && !["00", "0", 0].includes(resultCode)) {
+        throw new Error(header?.message || header?.resultMsg || "API 요청이 승인되지 않았습니다.");
+      }
+      return { items, total };
+    };
+
+    const normalizeAttraction = (item, index) => {
+      const title = firstValue(item, ["MAIN_TITLE", "TITLE", "mainTitle", "title"], `부산 명소 ${index + 1}`);
+      const district = firstValue(item, ["GUGUN_NM", "GUGUN", "SIGUNGU_NM", "gugunNm"], "부산");
+      const address = firstValue(item, ["ADDR1", "ADDRESS", "PLACE", "addr1", "address"], "주소 정보 확인 중");
+      const description = plainText(firstValue(item, ["ITEMCNTNTS", "SUBTITLE", "CONTENT", "DESCRIPTION", "itemcntnts", "contents"], "부산의 매력을 발견할 수 있는 관광 명소입니다."));
+      const image = safeUrl(firstValue(item, ["MAIN_IMG_NORMAL", "MAIN_IMG_THUMB", "IMAGE_URL", "mainImgNormal", "mainImgThumb"]));
+      const homepage = safeUrl(firstValue(item, ["HOMEPAGE_URL", "HOMEPAGE", "URL", "homepageUrl"]));
+      const telephone = firstValue(item, ["CNTCT_TEL", "TEL", "TELEPHONE", "cntctTel"]);
+      const id = firstValue(item, ["UC_SEQ", "CONTENT_ID", "ucSeq"], String(index + 1));
+      return { title, district, address, description, image, homepage, telephone, id };
+    };
+
+    const renderApiItems = () => {
+      const query = apiSearch.value.trim().toLowerCase();
+      const visible = apiItems.filter((item) => [item.title, item.district, item.address, item.description].join(" ").toLowerCase().includes(query));
+      apiGrid.innerHTML = visible.map((item, index) => {
+        const number = String(index + 1).padStart(2, "0");
+        const media = item.image
+          ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} 전경" loading="lazy">`
+          : `<div class="api-card-placeholder" aria-hidden="true"><span>BUSAN</span><strong>${number}</strong></div>`;
+        const action = item.homepage
+          ? `<a href="${escapeHtml(item.homepage)}" target="_blank" rel="noopener noreferrer">공식 정보 보기 <span>↗</span></a>`
+          : `<span class="api-card-id">DATA ${escapeHtml(item.id)}</span>`;
+        return `<article class="api-attraction-card">
+          <div class="api-card-media">${media}<b>${escapeHtml(item.district)}</b></div>
+          <div class="api-card-copy">
+            <div><span>BUSAN PLACE · ${number}</span><h3>${escapeHtml(item.title)}</h3></div>
+            <p>${escapeHtml(item.description)}</p>
+            <dl><div><dt>주소</dt><dd>${escapeHtml(item.address)}</dd></div>${item.telephone ? `<div><dt>문의</dt><dd>${escapeHtml(item.telephone)}</dd></div>` : ""}</dl>
+            ${action}
+          </div>
+        </article>`;
+      }).join("");
+
+      if (query) apiStatus.textContent = visible.length ? `검색 결과 ${visible.length}개의 명소를 찾았습니다.` : "검색어와 일치하는 명소가 없습니다.";
+      else apiStatus.textContent = apiItems.length ? `${apiItems.length}개의 부산 명소를 불러왔습니다.` : "표시할 관광 정보가 없습니다.";
+      apiStatus.hidden = Boolean(visible.length);
+    };
+
+    const setConnection = (state, text) => {
+      apiConnection.dataset.state = state;
+      apiConnection.querySelector("span").textContent = text;
+    };
+
+    const loadApiItems = async ({ reset = false } = {}) => {
+      if (apiLoading) return;
+      apiLoading = true;
+      if (reset) {
+        apiPage = 1;
+        apiItems = [];
+        apiGrid.innerHTML = "";
+      }
+      apiStatus.hidden = false;
+      apiStatus.textContent = "부산 관광 정보를 불러오고 있습니다.";
+      setConnection("loading", "API 연결 중");
+      apiRefresh.disabled = true;
+      apiMore.disabled = true;
+
+      try {
+        const response = await fetch(`/api/busan-attractions?pageNo=${apiPage}&numOfRows=${pageSize}`, { headers: { Accept: "application/json" } });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok || !payload.ok) throw new Error(payload.error || "부산 관광 정보를 불러오지 못했습니다.");
+        const result = extractApiResult(payload.data);
+        const normalized = result.items.map((item, index) => normalizeAttraction(item, apiItems.length + index));
+        apiItems = reset ? normalized : [...apiItems, ...normalized];
+        apiTotal = result.total;
+        apiPage += 1;
+        setConnection("connected", "부산시 API 연결됨");
+        renderApiItems();
+        apiMore.hidden = !normalized.length || apiItems.length >= apiTotal;
+      } catch (error) {
+        setConnection("error", "API 연결 필요");
+        apiStatus.hidden = false;
+        apiStatus.innerHTML = `${escapeHtml(error.message)}<small>터미널에서 <code>npm run setup-api</code> 후 <code>npm start</code>를 실행해 주세요.</small>`;
+        apiMore.hidden = true;
+      } finally {
+        apiLoading = false;
+        apiRefresh.disabled = false;
+        apiMore.disabled = false;
+      }
+    };
+
+    apiSearch.addEventListener("input", renderApiItems);
+    apiRefresh.addEventListener("click", () => loadApiItems({ reset: true }));
+    apiMore.addEventListener("click", () => loadApiItems());
+    loadApiItems({ reset: true });
+  }
+
   window.addEventListener("resize", () => {
     if (window.innerWidth > 767 && body.classList.contains("menu-open")) {
       body.classList.remove("menu-open");
